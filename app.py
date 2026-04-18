@@ -25,9 +25,7 @@ def usd_cop()  -> str:
     data = r.json()
 
 
-    rate = data["result"]
-
-    return f"1 USD = {r.content.decode()} COP"
+    return f"1 USD = {r.json()} COP"
     
 s
 
