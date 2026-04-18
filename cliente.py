@@ -1,7 +1,7 @@
 import requests
 import json
 
-URL = "http://localhost:8000/mcp"
+URL = "https://mi-mcp-render.onrender.com/mcp"
 
 base_headers = {
     "Content-Type": "application/json",

@@ -11,7 +11,7 @@ def ping() -> str:
 @mcp.tool
 def saludar(nombre: str) -> str:
     """Devuelve un saludo simple."""
-    return f"Hola {nombre}, tu MCP está funcionando."
+    return f"Hola {nombre}, tu MCP está funcionando. Cambio esperado en render.com"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", "8000"))
