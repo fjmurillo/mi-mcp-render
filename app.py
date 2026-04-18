@@ -9,9 +9,9 @@ SAP_USER = "USER_SAC"
 SAP_PASS = "Conexion*SAC.2026"
 
 @mcp.tool
-def business_partners() -> str:
+def oData() -> str:
     """
-    Consulta Business Partners SAP
+    Consulta oData SAP
     """
 
     params = {
