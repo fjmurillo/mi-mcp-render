@@ -11,19 +11,9 @@ def ping() -> str:
 @mcp.tool
 def saludar(nombre: str) -> str:
     """Devuelve un saludo simple."""
-    return f"Hola {nombre}, tu MCP está funcionando. Cambio esperado en render.comXXXXXX"
+    return f"Hola {nombre}, tu MCP está funcionando. Cambio esperado en render.com"
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "8000"))
-    mcp.run(
-        transport="http",
-        host="0.0.0.0",
-        port=port,
-        path="/mcp",
-    )
-
-
- @mcp.tool
+@mcp.tool
 def clima_bogota():
     """
     Consulta clima actual de Bogotá
@@ -37,3 +27,14 @@ def clima_bogota():
     wind = data["current_weather"]["windspeed"]
 
     return f"Bogotá: {temp}°C, viento {wind} km/h"   
+
+
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", "8000"))
+    mcp.run(
+        transport="http",
+        host="0.0.0.0",
+        port=port,
+        path="/mcp",
+    )
