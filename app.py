@@ -31,4 +31,4 @@ def business_partners() -> str:
     data = r.json()
 
 
-    return "\n".join(data)
+    return  f"{data}"
