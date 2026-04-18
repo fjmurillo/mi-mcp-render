@@ -1,4 +1,5 @@
 from fastmcp import FastMCP
+import requests
 import os
 
 mcp = FastMCP("mi-servidor-mcp")
