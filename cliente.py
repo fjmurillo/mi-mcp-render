@@ -17,7 +17,7 @@ init_payload = {
         "protocolVersion": "2024-11-05",
         "capabilities": {},
         "clientInfo": {
-            "name": "python-test-client",
+            "name": "FRANCO-TEST-CLIENT",
             "version": "1.0.0"
         }
     }
