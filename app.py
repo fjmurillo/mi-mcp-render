@@ -27,9 +27,9 @@ def usd_cop()  -> str:
 
     rate = data["result"]
 
-    return f"1 USD = {rate:,.2f} COP"
+    return f"1 USD = {r.content.decode()} COP"
     
-
+s
 
 
 if __name__ == "__main__":

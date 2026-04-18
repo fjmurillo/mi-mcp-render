@@ -92,7 +92,7 @@ call_payload = {
     "id": 3,
     "method": "tools/call",
     "params": {
-        "name": "clima_bogota",
+        "name": "usd_cop",
         "arguments": {}
     }
 }
