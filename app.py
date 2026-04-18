@@ -15,7 +15,7 @@ def saludar(nombre: str) -> str:
     return f"Hola {nombre}, tu MCP está funcionando. Cambio esperado en render.com"
 
 @mcp.tool
-def clima_bogota():
+def clima_bogota() -> str:
     """
     Consulta clima actual de Bogotá
     """
@@ -26,8 +26,15 @@ def clima_bogota():
 
     temp = data["current_weather"]["temperature"]
     wind = data["current_weather"]["windspeed"]
+    direction = data["current_weather"]["winddirection"]
+    code = data["current_weather"]["weathercode"]
+    time = data["current_weather"]["time"]
 
-    return f"Bogotá: {temp}°C, viento {wind} km/h"   
+    return (
+        f"Bogotá a las {time}: {temp}°C, "
+        f"viento {wind} km/h, dirección {direction}°, "
+        f"código meteorológico {code}"
+    )
 
 
 
