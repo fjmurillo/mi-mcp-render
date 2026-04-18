@@ -69,3 +69,36 @@ call_response = requests.post(URL, headers=headers_with_session, json=call_paylo
 print("\n=== TOOLS/CALL ping ===")
 print("STATUS:", call_response.status_code)
 print("BODY:", call_response.text)
+
+
+call_payload = {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "method": "tools/call",
+    "params": {
+        "name": "saludar",
+        "arguments": {"nombre": "Franco"}
+    }
+}
+call_response = requests.post(URL, headers=headers_with_session, json=call_payload)
+
+print("\n=== TOOLS/CALL saludar ===")
+print("STATUS:", call_response.status_code)
+print("BODY:", call_response.text)
+
+
+call_payload = {
+    "jsonrpc": "2.0",
+    "id": 3,
+    "method": "tools/call",
+    "params": {
+        "name": "clima_bogota",
+        "arguments": {}
+    }
+}
+
+call_response = requests.post(URL, headers=headers_with_session, json=call_payload)
+
+print("\n=== TOOLS/CALL clima_bogota ===")
+print("STATUS:", call_response.status_code)
+print("BODY:", call_response.text)
