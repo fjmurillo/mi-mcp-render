@@ -2,39 +2,33 @@ from fastmcp import FastMCP
 import requests
 import os
 
-mcp = FastMCP("mi-servidor-mcp")
+mcp = FastMCP("sap-mcp")
+
+SAP_URL = "http://epiuses4hana.epiuse.com.co:9001/sap/opu/odata/sap/ZSACHR_REPORT_TIME_SRV/ET_REPORT_TIMESet?$filter=ImProyecto eq '1000613'"
+SAP_USER = "USER_SAC"
+SAP_PASS = "Conexion*SAC.2026"
 
 @mcp.tool
-def ping() -> str:
-    """Valida que el servidor está activo."""
-    return "pong"
-
-@mcp.tool
-def saludar(nombre: str) -> str:
-    """Devuelve un saludo simple."""
-    return f"Hola {nombre}, tu MCP está funcionando. Cambio esperado en render.com"
-
-@mcp.tool
-def usd_cop()  -> str:
+def business_partners() -> str:
     """
-    Consulta tipo de cambio USD a COP
+    Consulta Business Partners SAP
     """
-    url = "https://api.exchangerate.host/convert?from=USD&to=COP"
 
-    r = requests.get(url, timeout=10)
+    params = {
+        "$top": 5,
+        "$format": "json"
+    }
+
+    r = requests.get(
+        SAP_URL,
+        params=params,
+        auth=(SAP_USER, SAP_PASS),
+        timeout=20
+    )
+
+    r.raise_for_status()
+
     data = r.json()
 
 
-    return f"1 USD = {r.json()} COP"
-    
-
-
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", "8000"))
-    mcp.run(
-        transport="http",
-        host="0.0.0.0",
-        port=port,
-        path="/mcp",
-    )
+    return "\n".join(data)
