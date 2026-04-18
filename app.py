@@ -27,7 +27,7 @@ def usd_cop()  -> str:
 
     return f"1 USD = {r.json()} COP"
     
-s
+
 
 
 if __name__ == "__main__":
