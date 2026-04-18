@@ -15,19 +15,20 @@ def saludar(nombre: str) -> str:
     return f"Hola {nombre}, tu MCP está funcionando. Cambio esperado en render.com"
 
 @mcp.tool
-def clima_bogota() -> str:
+def usd_cop()  -> str:
     """
-    Consulta clima actual de Bogotá
+    Consulta tipo de cambio USD a COP
     """
-    url = "https://api.open-meteo.com/v1/forecast?latitude=4.71&longitude=-74.07&current_weather=true"
+    url = "https://api.exchangerate.host/convert?from=USD&to=COP"
 
     r = requests.get(url, timeout=10)
     data = r.json()
 
 
-    return (
-       r.content.decode()
-    )
+    rate = data["result"]
+
+    return f"1 USD = {rate:,.2f} COP"
+    
 
 
 
