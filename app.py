@@ -2,7 +2,7 @@ from fastmcp import FastMCP
 import requests
 import os
 
-mcp = FastMCP("sap-mcp")
+mcp = FastMCP("mi-servidor-mcp")
 
 SAP_URL = "http://epiuses4hana.epiuse.com.co:9001/sap/opu/odata/sap/ZSACHR_REPORT_TIME_SRV/ET_REPORT_TIMESet?$filter=ImProyecto eq '1000613'"
 SAP_USER = "USER_SAC"
