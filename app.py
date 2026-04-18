@@ -24,16 +24,9 @@ def clima_bogota() -> str:
     r = requests.get(url, timeout=10)
     data = r.json()
 
-    temp = data["current_weather"]["temperature"]
-    wind = data["current_weather"]["windspeed"]
-    direction = data["current_weather"]["winddirection"]
-    code = data["current_weather"]["weathercode"]
-    time = data["current_weather"]["time"]
 
     return (
-        f"Bogotá a las {time}: {temp}°C, "
-        f"viento {wind} km/h, dirección {direction}°, "
-        f"código meteorológico {code}"
+       r.content.decode()
     )
 
 
