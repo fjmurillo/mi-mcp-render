@@ -1,14 +1,23 @@
 from fastmcp import FastMCP
+import os
 
 mcp = FastMCP("mi-servidor-mcp")
 
-@mcp.tool()
+@mcp.tool
 def ping() -> str:
+    """Valida que el servidor está activo."""
     return "pong"
 
-@mcp.tool()
+@mcp.tool
 def saludar(nombre: str) -> str:
-    return f"Hola {nombre}, tu MCP en Render funciona correctamente 🚀"
+    """Devuelve un saludo simple."""
+    return f"Hola {nombre}, tu MCP en Render funciona correctamente."
 
-# Endpoint MCP
-app = mcp.http_app(path="/mcp")
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", "10000"))
+    mcp.run(
+        transport="http",
+        host="0.0.0.0",
+        port=port,
+        path="/mcp",
+    )
